@@ -139,7 +139,7 @@ const config = {
     }),
   plugins: [
     [
-      path.resolve(__dirname, "plugins", "docusaurus-plugin"),
+      "@openfeature/docusaurus-openfeature-provider",
       {
         providerSdkToken: process.env.PROVIDER_SDK_TOKEN,
       },

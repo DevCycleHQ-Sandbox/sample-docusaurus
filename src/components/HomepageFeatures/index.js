@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import Heading from "@theme/Heading"
 import styles from "./styles.module.css"
+import { JsonFlag } from "@site/src/utils/flags"
 
 const FeatureList = [
   {
@@ -20,6 +21,12 @@ const FeatureList = [
       <>
         Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
         ahead and move your docs into the <code>docs</code> directory.
+        <div className="feature-flag-example">
+          <JsonFlag
+            variableKey="team-info"
+            defaultValue='{"status": "example"}'
+          />
+        </div>
       </>
     ),
   },

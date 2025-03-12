@@ -1,4 +1,6 @@
-# Website
+# OpenFeature Docusaurus Plugin Demo
+
+this is a demo of the OpenFeature Docusaurus Plugin. This branch is using the `@openfeature/flagd-web-provider` to connect to FlagD and is linked locally to the `docusaurus-plugin-openfeature` repo.
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 

@@ -21,6 +21,7 @@
     "@docusaurus/theme-classic": "latest",
     "@mdx-js/react": "^3.0.0",
     "@openfeature/core": "^1.7.2",
+    "@openfeature/docusaurus-openfeature-provider": "file:../docusaurus-plugin-openfeature",
     "@openfeature/flagd-web-provider": "^0.7.2",
     "@openfeature/react-sdk": "^0.4.11",
     "@openfeature/web-sdk": "^1.4.1",
@@ -48,5 +49,8 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "resolutions": {
+    "@openfeature/docusaurus-openfeature-provider": "portal:/Users/suthar/dev/sandbox/docusaurus-plugin-openfeature"
   }
 }

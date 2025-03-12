@@ -6,11 +6,7 @@ import { useEffect } from "react"
 import Heading from "@theme/Heading"
 import styles from "./index.module.css"
 
-import Toggle from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/Toggle"
-import StringFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/StringFlag"
-import NumberFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/NumberFlag"
-import JsonFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/JsonFlag"
-
+import { Toggle, StringFlag, NumberFlag, JsonFlag } from "@site/src/utils/flags"
 import { OpenFeature } from "@openfeature/react-sdk"
 
 function HomepageHeader() {
