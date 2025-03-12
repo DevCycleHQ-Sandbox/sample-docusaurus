@@ -1,12 +1,14 @@
-import { useStringFlagValue } from "@openfeature/react-sdk";
-import { usePluginData } from "@docusaurus/useGlobalData";
-import useIsBrowser from "@docusaurus/useIsBrowser";
+import { useStringFlagValue } from "@openfeature/react-sdk"
+import useIsBrowser from "@docusaurus/useIsBrowser"
 
 export default function (props) {
-  const { allVariables } = usePluginData("@devcycle/docusaurus-theme-devcycle");
-  const isBrowser = useIsBrowser();
-  const value = isBrowser
-    ? useStringFlagValue(props.variableKey, props.defaultValue)
-    : allVariables?.[props.variableKey]?.value || props.defaultValue;
-  return value;
+  const isBrowser = useIsBrowser()
+  const ffValue = useStringFlagValue(props.variableKey, props.defaultValue)
+
+  // Early return with empty placeholder for SSR
+  if (!isBrowser) {
+    return <span>{props.defaultValue}</span>
+  }
+
+  return <span>{ffValue}</span>
 }

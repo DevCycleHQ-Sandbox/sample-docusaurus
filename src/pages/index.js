@@ -1,51 +1,57 @@
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import Toggle from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/Toggle";
+import clsx from "clsx"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import Layout from "@theme/Layout"
+import HomepageFeatures from "@site/src/components/HomepageFeatures"
+import { useEffect } from "react"
+import Heading from "@theme/Heading"
+import styles from "./index.module.css"
 
-import Heading from "@theme/Heading";
-import styles from "./index.module.css";
-import StringFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/StringFlag";
-import NumberFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/NumberFlag";
-import JsonFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/JsonFlag";
+import Toggle from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/Toggle"
+import StringFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/StringFlag"
+import NumberFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/NumberFlag"
+import JsonFlag from "../../plugins/docusaurus-plugin/src/theme/MDXComponents/JsonFlag"
+
+import { OpenFeature } from "@openfeature/react-sdk"
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  const emptyJson = JSON.stringify({});
+  const { siteConfig } = useDocusaurusContext()
+  const emptyJson = JSON.stringify({})
+
+  useEffect(() => {
+    OpenFeature.setContext({ user_id: "parth", internal: true })
+  }, [])
+
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          <Toggle
-            variableKey="maintenance-mode"
-            defaultValue={false}
-            comparison={true}
-          >
-            This flag is turned on
-          </Toggle>
-          <StringFlag variableKey="string-flag" defaultValue="" />
-          <NumberFlag variableKey="number-flag" defaultValue="0" />
-          <JsonFlag variableKey="json-flag" defaultValue={emptyJson} />
+          <StringFlag variableKey="site-heading" defaultValue="" />
         </Heading>
-
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro"
-          >
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
+        <br />
+        <Toggle
+          variableKey="new-maintenance-flag"
+          defaultValue={false}
+          comparison={true}
+        >
+          Maintenance Mode is ON
+        </Toggle>
+        <br />
+        <p>
+          <NumberFlag variableKey="team-number" defaultValue="0" />
+        </p>
+        <br />
+        <p>
+          <JsonFlag variableKey="team-info" defaultValue={emptyJson} />
+        </p>
+        <br />
       </div>
     </header>
-  );
+  )
 }
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext()
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -53,8 +59,18 @@ export default function Home() {
     >
       <HomepageHeader />
       <main>
+        <Toggle
+          variableKey="show-welcome-banner"
+          defaultValue={false}
+          comparison={true}
+        >
+          <div className="banner">
+            <h2>Welcome to the site</h2>
+            <p>This is a welcome banner</p>
+          </div>
+        </Toggle>
         <HomepageFeatures />
       </main>
     </Layout>
-  );
+  )
 }

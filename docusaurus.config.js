@@ -3,9 +3,9 @@
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
-require("dotenv").config();
-import { themes as prismThemes } from "prism-react-renderer";
-const path = require("path");
+require("dotenv").config()
+import { themes as prismThemes } from "prism-react-renderer"
+const path = require("path")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -141,10 +141,10 @@ const config = {
     [
       path.resolve(__dirname, "plugins", "docusaurus-plugin"),
       {
-        sdkKey: process.env.DEVCYCLE_CLIENT_SDK_TOKEN,
+        providerSdkToken: process.env.PROVIDER_SDK_TOKEN,
       },
     ],
   ],
-};
+}
 
-export default config;
+export default config

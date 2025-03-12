@@ -1,17 +1,26 @@
-import React from "react";
-// import { withDevCycleProvider } from "@devcycle/react-client-sdk";
+import React from "react"
 
-import { OpenFeatureProvider, OpenFeature } from "@openfeature/react-sdk";
-import DevCycleProvider from "@devcycle/openfeature-web-provider";
+import { OpenFeatureProvider, OpenFeature } from "@openfeature/react-sdk"
+// import DevCycleReactProvider from "@devcycle/openfeature-react-provider"
+import { FlagdWebProvider } from "@openfeature/flagd-web-provider"
 
-await OpenFeature.setContext({ user_id: "user_id" });
+await OpenFeature.setContext({ user_id: "ssr-user" })
+// await OpenFeature.setProviderAndWait(
+//   new DevCycleReactProvider(process.env.PROVIDER_SDK_TOKEN)
+// )
+
 await OpenFeature.setProviderAndWait(
-  new DevCycleProvider(process.env.DEVCYCLE_CLIENT_SDK_TOKEN),
-);
+  new FlagdWebProvider({
+    host: "localhost",
+    port: 8013,
+    tls: false,
+    maxRetries: 10,
+    maxDelay: 30000,
+  })
+)
 
-// Default implementation, that you can customize
 function Root({ children }) {
-  return <OpenFeatureProvider>{children}</OpenFeatureProvider>;
+  return <OpenFeatureProvider>{children}</OpenFeatureProvider>
 }
 
-export default Root;
+export default Root

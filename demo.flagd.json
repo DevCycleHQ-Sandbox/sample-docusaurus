@@ -1,0 +1,118 @@
+{
+  "$schema": "https://flagd.dev/schema/v0/flags.json",
+  "flags": {
+    "show-welcome-banner": {
+      "state": "ENABLED",
+      "variants": {
+        "on": true,
+        "off": false
+      },
+      "defaultVariant": "off",
+      "targeting": {
+        "if": [
+          {
+            "===": [
+              {
+                "var": "internal"
+              },
+              true
+            ]
+          },
+          "on"
+        ]
+      }
+    },
+    "new-maintenance-flag": {
+      "state": "ENABLED",
+      "variants": {
+        "on": true,
+        "off": false
+      },
+      "defaultVariant": "off",
+      "targeting": {
+        "if": [
+          {
+            "===": [
+              {
+                "var": "internal"
+              },
+              true
+            ]
+          },
+          "on"
+        ]
+      }
+    },
+    "team-number": {
+      "state": "ENABLED",
+      "variants": {
+        "1": 1,
+        "2": 2
+      },
+      "defaultVariant": "1",
+      "targeting": {
+        "if": [
+          {
+            "===": [
+              {
+                "var": "internal"
+              },
+              true
+            ]
+          },
+          "2"
+        ]
+      }
+    },
+    "team-info": {
+      "state": "ENABLED",
+      "variants": {
+        "core": {
+          "name": "Core",
+          "number": 1,
+          "members": ["John", "Jane", "Jim"]
+        },
+        "support": {
+          "name": "Support",
+          "number": 2,
+          "members": ["John", "Jane", "Jim"]
+        }
+      },
+      "defaultVariant": "support",
+      "targeting": {
+        "if": [
+          {
+            "===": [
+              {
+                "var": "internal"
+              },
+              true
+            ]
+          },
+          "core"
+        ]
+      }
+    },
+    "site-heading": {
+      "state": "ENABLED",
+      "variants": {
+        "ON": "OpenFeature Demo",
+        "OFF": "Docusaurus Demo"
+      },
+      "defaultVariant": "OFF",
+      "targeting": {
+        "if": [
+          {
+            "===": [
+              {
+                "var": "internal"
+              },
+              true
+            ]
+          },
+          "ON"
+        ]
+      }
+    }
+  }
+}

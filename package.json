@@ -14,15 +14,16 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@devcycle/docusaurus-plugin": "^0.0.0-rc.8",
-    "@devcycle/openfeature-web-provider": "^0.11.0",
-    "@docusaurus/core": "3.3.2",
-    "@docusaurus/preset-classic": "3.3.2",
-    "@docusaurus/theme-classic": "^3.3.2",
+    "@devcycle/openfeature-react-provider": "^1.1.2",
+    "@devcycle/openfeature-web-provider": "^1.1.2",
+    "@docusaurus/core": "latest",
+    "@docusaurus/preset-classic": "latest",
+    "@docusaurus/theme-classic": "latest",
     "@mdx-js/react": "^3.0.0",
-    "@openfeature/core": "^1.2.0",
-    "@openfeature/react-sdk": "^0.4.0",
-    "@openfeature/web-sdk": "^1.1.0",
+    "@openfeature/core": "^1.7.2",
+    "@openfeature/flagd-web-provider": "^0.7.2",
+    "@openfeature/react-sdk": "^0.4.11",
+    "@openfeature/web-sdk": "^1.4.1",
     "clsx": "^2.0.0",
     "dotenv": "^16.4.5",
     "prism-react-renderer": "^2.3.0",
@@ -30,8 +31,8 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.3.2",
-    "@docusaurus/types": "3.3.2"
+    "@docusaurus/module-type-aliases": "latest",
+    "@docusaurus/types": "latest"
   },
   "browserslist": {
     "production": [

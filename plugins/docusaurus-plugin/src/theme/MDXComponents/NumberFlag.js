@@ -1,13 +1,17 @@
-import { useNumberFlagValue } from "@openfeature/react-sdk";
-import { usePluginData } from "@docusaurus/useGlobalData";
-import useIsBrowser from "@docusaurus/useIsBrowser";
+import { useNumberFlagValue } from "@openfeature/react-sdk"
+import useIsBrowser from "@docusaurus/useIsBrowser"
 
 export default function (props) {
-  const { allVariables } = usePluginData("@devcycle/docusaurus-theme-devcycle");
-  const isBrowser = useIsBrowser();
-  const value = isBrowser
-    ? useNumberFlagValue(props.variableKey, parseFloat(props.defaultValue))
-    : allVariables?.[props.variableKey]?.value ||
-      parseFloat(props.defaultValue);
-  return value;
+  const isBrowser = useIsBrowser()
+  const ffValue = useNumberFlagValue(
+    props.variableKey,
+    parseFloat(props.defaultValue)
+  )
+
+  // For SSR, return a placeholder value
+  if (!isBrowser) {
+    return <span>{props.defaultValue}</span>
+  }
+
+  return <span>{ffValue}</span>
 }

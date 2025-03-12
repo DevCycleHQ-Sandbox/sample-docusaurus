@@ -1,6 +1,5 @@
-# DevCycle Docusaurus Plugin
+# OpenFeature Docusaurus Plugin
 
-A plugin that easily integrates DevCycle feature flags with Docusaurus.
+A plugin that easily integrates OpenFeature with Docusaurus.
 
-Use RC6 for React 17 and below.
-Use RC8 for React 18.
+Use RC1 for React 18.

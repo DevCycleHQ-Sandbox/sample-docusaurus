@@ -1,19 +1,18 @@
 {
-    "name": "@devcycle/docusaurus-plugin",
-    "version": "0.0.0-rc.8",
-    "description": "A plugin that easily integrates DevCycle feature flags with Docusaurus",
-    "main": "src/index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": "https://github.com/DevCycleHQ/docusaurus-devcycle-plugin",
-    "license": "MIT",
-    "author": "DevCycle",
-    "dependencies": {
-        "@devcycle/react-client-sdk": "^1.11.11",
-        "@devcycle/js-client-sdk": "^1.13.10"
-    },
-    "files": [
-        "src"
-    ]
+  "name": "@openfeature/docusaurus-openfeature-provider",
+  "version": "0.0.0-rc.1",
+  "description": "A plugin that easily integrates OpenFeature with Docusaurus",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/devcyclehq-labs/docusaurus-openfeature-provider",
+  "license": "MIT",
+  "author": "DevCycle",
+  "dependencies": {
+    "@openfeature/react-sdk": "latest"
+  },
+  "files": [
+    "src"
+  ]
 }
